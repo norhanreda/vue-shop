@@ -53,9 +53,10 @@ export default {
     {
     addTOCart(context,payload)
     {
-        //  const prodId=payload.id;
-        //  context.rootGetterts['prods/products'];
-          context.commit('addProductToCart',payload);
+         const prodId=payload.id;
+       const products=  context.rootGetters['prods/products'];
+       const product=products.find(prod => prod.id === prodId);
+          context.commit('addProductToCart',product);
     },
     removeFromCart(context,payload)
     {
